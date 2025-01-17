@@ -17,16 +17,16 @@ public class ClinicalTrialsController(IClinicalTrialsService clinicalTrialsServi
     [ProducesErrorResponseType(typeof(BaseApiResponse))]
     public async Task<IActionResult> Get(int id)
     {
-        var result = await clinicalTrialsService.GetClinicalTrialAsync(id);
-        return Ok(result);
+        var response = await clinicalTrialsService.GetClinicalTrialAsync(id);
+        return Ok(response);
     }
     
     [HttpPost]
-    [ProducesResponseType(typeof(ClinicalTrialVM), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ClinicalTrialVM), (int)HttpStatusCode.Created)]
     [ProducesErrorResponseType(typeof(BaseApiResponse))]
     public async Task<IActionResult> Post([AllowedFileExtensions([".json"])] IFormFile file)
     {
-        var result = await clinicalTrialsService.AddClinicalTrialAsync(file);
-        return Ok(result);
+        var response = await clinicalTrialsService.AddClinicalTrialAsync(file);
+        return StatusCode((int)HttpStatusCode.Created, response);
     }
 }

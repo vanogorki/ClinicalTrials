@@ -13,7 +13,7 @@ public class ClinicalTrialsService(IUnitOfWork unitOfWork, IMapper mapper) : ICl
     public async Task<ClinicalTrialVM> GetClinicalTrialAsync(long id)
     {
         var entity = await unitOfWork.ClinicalTrialRepository.GetAsync(id);
-        if (entity is null) throw new Exception("Clinical Trial not found");
+        if (entity is null) throw new KeyNotFoundException($"Clinical trial with Id {id} not found");
         
         var result = mapper.Map<ClinicalTrialVM>(entity);
         return result;

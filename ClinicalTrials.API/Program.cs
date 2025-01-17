@@ -1,3 +1,4 @@
+using ClinicalTrials.API.Middlewares;
 using ClinicalTrials.Core;
 using ClinicalTrials.Infrastructure;
 using ClinicalTrials.Migrations;
@@ -22,11 +23,16 @@ public static class Program
         builder.Services.AddInfrastructure();
         builder.Services.AddCore();
         
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<ExceptionMiddleware>();
+        
         // Add DatabaseContext
         builder.Services.AddDbContext<DatabaseContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection")));
 
         var app = builder.Build();
+        
+        app.UseMiddleware<ExceptionMiddleware>();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

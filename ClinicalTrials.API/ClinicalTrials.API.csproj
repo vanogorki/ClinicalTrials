@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ClinicalTrials.Contracts\ClinicalTrials.Contracts.csproj" />
+      <ProjectReference Include="..\ClinicalTrials.Core\ClinicalTrials.Core.csproj" />
       <ProjectReference Include="..\ClinicalTrials.Infrastructure\ClinicalTrials.Infrastructure.csproj" />
     </ItemGroup>
 

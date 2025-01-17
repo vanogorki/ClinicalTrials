@@ -1,3 +1,4 @@
+using ClinicalTrials.Core;
 using ClinicalTrials.Infrastructure;
 using ClinicalTrials.Migrations;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ public static class Program
         builder.Services.AddAuthorization();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddControllers().AddNewtonsoftJson();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        
         builder.Services.AddInfrastructure();
-        builder.Services.AddControllers();
+        builder.Services.AddCore();
         
         // Add DatabaseContext
         builder.Services.AddDbContext<DatabaseContext>(options =>
@@ -32,6 +35,8 @@ public static class Program
             app.UseSwaggerUI();
             app.ApplyMigrations();
         }
+
+        app.MapControllers();
 
         app.UseHttpsRedirection();
 

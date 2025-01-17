@@ -1,4 +1,6 @@
 using ClinicalTrials.Infrastructure;
+using ClinicalTrials.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicalTrials.API;
 
@@ -15,6 +17,11 @@ public static class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddInfrastructure();
+        builder.Services.AddControllers();
+        
+        // Add DatabaseContext
+        builder.Services.AddDbContext<DatabaseContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection")));
 
         var app = builder.Build();
 
@@ -23,6 +30,7 @@ public static class Program
         {
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.ApplyMigrations();
         }
 
         app.UseHttpsRedirection();

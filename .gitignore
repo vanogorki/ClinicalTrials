@@ -398,4 +398,7 @@ FodyWeavers.xsd
 *.sln.iml
 /.idea/
 
+# Docker Compose
+/.containers/
+
 .DS_Store

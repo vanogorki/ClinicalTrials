@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using Asp.Versioning;
 using ClinicalTrials.Contracts.DTO;
 using ClinicalTrials.Contracts.DTO.Base;
 using ClinicalTrials.Contracts.Services;
@@ -10,11 +9,9 @@ namespace ClinicalTrials.API.Controllers.V1;
 
 [EnableRateLimiting("fixed")]
 [ApiController]
-[ApiVersion("1.0")]
-[Route("api/v{version:apiVersion}/[controller]")]
+[Route("api/[controller]")]
 public class ClinicalTrialsController(IClinicalTrialsService clinicalTrialsService) : ControllerBase
 {
-    [MapToApiVersion("1.0")]
     [HttpGet]
     [Route("{id}")]
     [ProducesResponseType(typeof(ClinicalTrialVM), (int)HttpStatusCode.OK)]

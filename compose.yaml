@@ -1,0 +1,26 @@
+﻿services:
+  clinicaltrials.api:
+    image: clinicaltrials.api
+    build:
+      context: .
+      dockerfile: ClinicalTrials.API/Dockerfile
+    container_name: clinicaltrials.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5000
+    ports:
+      - "5000:5000"
+    depends_on:
+        - clinicaltrials.database
+        
+  clinicaltrials.database:
+    image: postgres:latest
+    container_name: clinicaltrials.database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=clinicaltrials
+    volumes:
+      - ./.containers/postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

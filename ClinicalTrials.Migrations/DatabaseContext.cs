@@ -2,18 +2,11 @@
 using ClinicalTrials.Contracts.Data.Entities.Base;
 using ClinicalTrials.Contracts.Enum;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace ClinicalTrials.Migrations;
 
-public class DatabaseContext(IConfiguration configuration) : DbContext
+public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var connectionString = configuration.GetConnectionString("DBConnection");
-        optionsBuilder.UseNpgsql(connectionString);
-    }
-
     public DbSet<ClinicalTrial> ClinicalTrials { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

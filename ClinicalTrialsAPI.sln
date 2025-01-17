@@ -1,6 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrialsAPI", "ClinicalTrialsAPI\ClinicalTrialsAPI.csproj", "{867B310A-3A49-41CD-8AFB-A03B1887C178}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.API", "ClinicalTrials.API\ClinicalTrials.API.csproj", "{867B310A-3A49-41CD-8AFB-A03B1887C178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Contracts", "ClinicalTrials.Contracts\ClinicalTrials.Contracts.csproj", "{4493BAC5-F91B-47FF-9182-5179AB1F95A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF198B24-9FA2-4513-8D94-6D40289418A0}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Infrastructure", "ClinicalTrials.Infrastructure\ClinicalTrials.Infrastructure.csproj", "{FD23A83B-90BE-4638-A4D8-D020A73D940F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Migrations", "ClinicalTrials.Migrations\ClinicalTrials.Migrations.csproj", "{A519F858-A1B0-40FC-8072-C288D05D2F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Core", "ClinicalTrials.Core\ClinicalTrials.Core.csproj", "{42B94664-44B3-4665-83BC-2665E270FC60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +29,24 @@ Global
 		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B94664-44B3-4665-83BC-2665E270FC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B94664-44B3-4665-83BC-2665E270FC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B94664-44B3-4665-83BC-2665E270FC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B94664-44B3-4665-83BC-2665E270FC60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

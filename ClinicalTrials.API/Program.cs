@@ -1,6 +1,8 @@
-namespace ClinicalTrialsAPI;
+using ClinicalTrials.Infrastructure;
 
-public class Program
+namespace ClinicalTrials.API;
+
+public static class Program
 {
     public static void Main(string[] args)
     {
@@ -12,6 +14,7 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddInfrastructure();
 
         var app = builder.Build();
 

@@ -6,9 +6,8 @@
       dockerfile: ClinicalTrials.API/Dockerfile
     container_name: clinicaltrials.api
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_HTTP_PORTS=5000
-      - DB_CONNECTION_STRING=Host=clinicaltrials.database;Port=5432;Database=clinicaltrials;User Id=postgres;Password=postgres
     ports:
       - "5000:5000"
     depends_on:

@@ -9,7 +9,7 @@ internal static class PersistenceModule
 {
     internal static void AddPersistenceModule(this WebApplicationBuilder builder)
     {
-        var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+        var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
         builder.Services.AddDbContext<DatabaseContext>(options =>
             options.UseNpgsql(connectionString));
         

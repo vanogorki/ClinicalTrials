@@ -19,8 +19,6 @@ namespace ClinicalTrials.Infrastructure.Services;
 
 public class ClinicalTrialsService(IUnitOfWork unitOfWork, IMapper mapper) : IClinicalTrialsService
 {
-    private readonly JSchema _jsonSchema = JSchema.Parse(File.ReadAllText("Files/jsonSchema.json"));
-
     public async Task<ClinicalTrialVM> GetClinicalTrialAsync(long id)
     {
         var entity = await unitOfWork.ClinicalTrialRepository.GetAsync(id);
@@ -72,10 +70,20 @@ public class ClinicalTrialsService(IUnitOfWork unitOfWork, IMapper mapper) : ICl
             Converters = { new TrialStatusConverter() }
         });
         if (clinicalTrial is null) throw new Exception("Invalid JSON data");
+        
+        // if end date is not specified and trial status is 'Ongoing', set end date to 1 month from the start date
+        if (clinicalTrial.EndDate == default && clinicalTrial.Status == TrialStatus.Ongoing)
+            clinicalTrial.EndDate = clinicalTrial.StartDate.AddMonths(1);
+        
+        if (clinicalTrial.StartDate > clinicalTrial.EndDate)
+            throw new ValidationException("Start date cannot be greater than end date");
 
         // Convert DateTimeOffset properties to UTC
         clinicalTrial.StartDate = clinicalTrial.StartDate.ToUniversalTime();
         clinicalTrial.EndDate = clinicalTrial.EndDate.ToUniversalTime();
+        
+        // calculate the duration of the trial in days
+        clinicalTrial.DurationInDays = (clinicalTrial.EndDate - clinicalTrial.StartDate).Days;
 
         await unitOfWork.ClinicalTrialRepository.AddAsync(clinicalTrial);
         await unitOfWork.CommitAsync();
@@ -90,7 +98,8 @@ public class ClinicalTrialsService(IUnitOfWork unitOfWork, IMapper mapper) : ICl
         var json = await stream.ReadToEndAsync();
         var jsonObject = JObject.Parse(json);
 
-        if (!jsonObject.IsValid(_jsonSchema, out IList<string> errorMessages))
+        var jsonSchema = JSchema.Parse(await File.ReadAllTextAsync("Files/jsonSchema.json"));
+        if (!jsonObject.IsValid(jsonSchema, out IList<string> errorMessages))
         {
             throw new ValidationException("Invalid JSON data: " + string.Join(", ", errorMessages));
         }

@@ -1,11 +1,12 @@
 ﻿using System.Net;
-using ClinicalTrials.Contracts.DTO.Base;
+using ClinicalTrials.Application.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace ClinicalTrials.API.Middlewares;
 
-public class ExceptionMiddleware(IHttpContextAccessor accessor, ILogger<ExceptionMiddleware> logger) : IMiddleware
+internal sealed class ExceptionMiddleware(IHttpContextAccessor accessor, ILogger<ExceptionMiddleware> logger)
+    : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {

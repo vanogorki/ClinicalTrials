@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.API", "ClinicalTrials.API\ClinicalTrials.API.csproj", "{867B310A-3A49-41CD-8AFB-A03B1887C178}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.API", "ClinicalTrials.API\ClinicalTrials.API.csproj", "{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Contracts", "ClinicalTrials.Contracts\ClinicalTrials.Contracts.csproj", "{4493BAC5-F91B-47FF-9182-5179AB1F95A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Application", "ClinicalTrials.Application\ClinicalTrials.Application.csproj", "{DC27157F-5B83-4AE6-8323-9921FDD0848A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Domain", "ClinicalTrials.Domain\ClinicalTrials.Domain.csproj", "{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Persistence", "ClinicalTrials.Persistence\ClinicalTrials.Persistence.csproj", "{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF198B24-9FA2-4513-8D94-6D40289418A0}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,40 +15,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Infrastructure", "ClinicalTrials.Infrastructure\ClinicalTrials.Infrastructure.csproj", "{FD23A83B-90BE-4638-A4D8-D020A73D940F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Migrations", "ClinicalTrials.Migrations\ClinicalTrials.Migrations.csproj", "{A519F858-A1B0-40FC-8072-C288D05D2F63}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Core", "ClinicalTrials.Core\ClinicalTrials.Core.csproj", "{42B94664-44B3-4665-83BC-2665E270FC60}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{867B310A-3A49-41CD-8AFB-A03B1887C178}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4493BAC5-F91B-47FF-9182-5179AB1F95A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD23A83B-90BE-4638-A4D8-D020A73D940F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A519F858-A1B0-40FC-8072-C288D05D2F63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42B94664-44B3-4665-83BC-2665E270FC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42B94664-44B3-4665-83BC-2665E270FC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42B94664-44B3-4665-83BC-2665E270FC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42B94664-44B3-4665-83BC-2665E270FC60}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

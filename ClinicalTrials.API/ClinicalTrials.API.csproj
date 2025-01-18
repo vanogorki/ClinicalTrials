@@ -1,19 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <ItemGroup>
+        <PackageReference Include="MediatR" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" />
         <PackageReference Include="Swashbuckle.AspNetCore"/>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ClinicalTrials.Contracts\ClinicalTrials.Contracts.csproj" />
-      <ProjectReference Include="..\ClinicalTrials.Core\ClinicalTrials.Core.csproj" />
-      <ProjectReference Include="..\ClinicalTrials.Infrastructure\ClinicalTrials.Infrastructure.csproj" />
+      <ProjectReference Include="..\ClinicalTrials.Application\ClinicalTrials.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Schemas\jsonSchema.json" />
     </ItemGroup>
 
     <ItemGroup>

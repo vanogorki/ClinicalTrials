@@ -7,9 +7,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ClinicalTrials.API/ClinicalTrials.API.csproj", "ClinicalTrials.API/"]
-COPY ["ClinicalTrials.Contracts/ClinicalTrials.Contracts.csproj", "ClinicalTrials.Contracts/"]
-COPY ["ClinicalTrials.Infrastructure/ClinicalTrials.Infrastructure.csproj", "ClinicalTrials.Infrastructure/"]
-COPY ["ClinicalTrials.Migrations/ClinicalTrials.Migrations.csproj", "ClinicalTrials.Migrations/"]
+COPY ["ClinicalTrials.Application/ClinicalTrials.Application.csproj", "ClinicalTrials.Application/"]
+COPY ["ClinicalTrials.Persistence/ClinicalTrials.Persistence.csproj", "ClinicalTrials.Persistence/"]
+COPY ["ClinicalTrials.Domain/ClinicalTrials.Domain.csproj", "ClinicalTrials.Domain/"]
 RUN dotnet restore "ClinicalTrials.API/ClinicalTrials.API.csproj"
 COPY . .
 WORKDIR "/src/ClinicalTrials.API"

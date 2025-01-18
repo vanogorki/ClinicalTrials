@@ -8,11 +8,12 @@
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=5000
+      - DB_CONNECTION_STRING=Host=clinicaltrials.database;Port=5432;Database=clinicaltrials;User Id=postgres;Password=postgres
     ports:
       - "5000:5000"
     depends_on:
-        - clinicaltrials.database
-        
+      - clinicaltrials.database
+  
   clinicaltrials.database:
     image: postgres:latest
     container_name: clinicaltrials.database

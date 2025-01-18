@@ -1,53 +1,16 @@
 using ClinicalTrials.API.Middlewares;
-using ClinicalTrials.Core;
-using ClinicalTrials.Infrastructure;
-using ClinicalTrials.Migrations;
-using Microsoft.EntityFrameworkCore;
+using ClinicalTrials.API.Modules;
 
-namespace ClinicalTrials.API;
+var builder = WebApplication.CreateBuilder(args);
 
-public static class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.AddApplicationModule();
 
-        // Add services to the container.
-        builder.Services.AddAuthorization();
+var app = builder.Build();
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddControllers().AddNewtonsoftJson();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-        
-        builder.Services.AddInfrastructure();
-        builder.Services.AddCore();
-        
-        builder.Services.AddHttpContextAccessor();
-        builder.Services.AddScoped<ExceptionMiddleware>();
-        
-        // Add DatabaseContext
-        builder.Services.AddDbContext<DatabaseContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection")));
+app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseSwagger();
+app.UseSwaggerUI();
+app.ApplyMigrations();
 
-        var app = builder.Build();
-        
-        app.UseMiddleware<ExceptionMiddleware>();
-
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-            app.ApplyMigrations();
-        }
-
-        app.MapControllers();
-
-        app.UseHttpsRedirection();
-
-        app.UseAuthorization();
-
-        app.Run();
-    }
-}
+app.Run();

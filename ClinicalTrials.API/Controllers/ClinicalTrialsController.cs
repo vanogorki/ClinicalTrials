@@ -24,7 +24,7 @@ public class ClinicalTrialsController(IClinicalTrialsService clinicalTrialsServi
     [HttpPost]
     [ProducesResponseType(typeof(ClinicalTrialVM), (int)HttpStatusCode.Created)]
     [ProducesErrorResponseType(typeof(BaseApiResponse))]
-    public async Task<IActionResult> Post([AllowedFileExtensions([".json"])] IFormFile file)
+    public async Task<IActionResult> Post([AllowedFileExtensions([".json"])] [MaxFileSize(1048576)] IFormFile file) // 1 MB
     {
         var response = await clinicalTrialsService.AddClinicalTrialAsync(file);
         return StatusCode((int)HttpStatusCode.Created, response);

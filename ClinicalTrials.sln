@@ -1,19 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.API", "ClinicalTrials.API\ClinicalTrials.API.csproj", "{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Application", "ClinicalTrials.Application\ClinicalTrials.Application.csproj", "{DC27157F-5B83-4AE6-8323-9921FDD0848A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Domain", "ClinicalTrials.Domain\ClinicalTrials.Domain.csproj", "{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Persistence", "ClinicalTrials.Persistence\ClinicalTrials.Persistence.csproj", "{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF198B24-9FA2-4513-8D94-6D40289418A0}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
 		compose.yaml = compose.yaml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB72BA9D-E655-42DA-A00D-1B22B5B01CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Domain", "src\ClinicalTrials.Domain\ClinicalTrials.Domain.csproj", "{1EA2053F-8D8A-489D-BA8F-238F99818198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Application", "src\ClinicalTrials.Application\ClinicalTrials.Application.csproj", "{0E95CEAA-6277-400F-B787-4309ECCAB677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.Persistence", "src\ClinicalTrials.Persistence\ClinicalTrials.Persistence.csproj", "{D612A794-63EF-45D0-B4EA-1344A0F3B862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicalTrials.API", "src\ClinicalTrials.API\ClinicalTrials.API.csproj", "{6E10A2E0-925A-4CA4-B659-42700482EBF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,21 +22,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7332AD8-6DBB-441B-80A0-9A182BC42FA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC27157F-5B83-4AE6-8323-9921FDD0848A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5F75A62-5674-4E44-A12F-4B400DA5DC9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C439E77-C69D-4EA2-B595-DE5BA4B1BEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA2053F-8D8A-489D-BA8F-238F99818198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA2053F-8D8A-489D-BA8F-238F99818198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA2053F-8D8A-489D-BA8F-238F99818198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA2053F-8D8A-489D-BA8F-238F99818198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E95CEAA-6277-400F-B787-4309ECCAB677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E95CEAA-6277-400F-B787-4309ECCAB677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E95CEAA-6277-400F-B787-4309ECCAB677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E95CEAA-6277-400F-B787-4309ECCAB677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D612A794-63EF-45D0-B4EA-1344A0F3B862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D612A794-63EF-45D0-B4EA-1344A0F3B862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D612A794-63EF-45D0-B4EA-1344A0F3B862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D612A794-63EF-45D0-B4EA-1344A0F3B862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E10A2E0-925A-4CA4-B659-42700482EBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E10A2E0-925A-4CA4-B659-42700482EBF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E10A2E0-925A-4CA4-B659-42700482EBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E10A2E0-925A-4CA4-B659-42700482EBF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1EA2053F-8D8A-489D-BA8F-238F99818198} = {CB72BA9D-E655-42DA-A00D-1B22B5B01CC6}
+		{0E95CEAA-6277-400F-B787-4309ECCAB677} = {CB72BA9D-E655-42DA-A00D-1B22B5B01CC6}
+		{D612A794-63EF-45D0-B4EA-1344A0F3B862} = {CB72BA9D-E655-42DA-A00D-1B22B5B01CC6}
+		{6E10A2E0-925A-4CA4-B659-42700482EBF9} = {CB72BA9D-E655-42DA-A00D-1B22B5B01CC6}
 	EndGlobalSection
 EndGlobal

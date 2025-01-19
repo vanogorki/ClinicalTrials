@@ -3,7 +3,7 @@
     image: clinicaltrials.api
     build:
       context: .
-      dockerfile: ClinicalTrials.API/Dockerfile
+      dockerfile: src/ClinicalTrials.API/Dockerfile
     container_name: clinicaltrials.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
@@ -11,7 +11,8 @@
     ports:
       - "5000:5000"
     depends_on:
-      - clinicaltrials.database
+      clinicaltrials.database:
+        condition: service_healthy
   
   clinicaltrials.database:
     image: postgres:latest
@@ -24,3 +25,8 @@
       - ./.containers/postgres-db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5

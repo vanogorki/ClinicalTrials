@@ -10,6 +10,9 @@ COPY ["src/ClinicalTrials.API/ClinicalTrials.API.csproj", "src/ClinicalTrials.AP
 COPY ["src/ClinicalTrials.Application/ClinicalTrials.Application.csproj", "src/ClinicalTrials.Application/"]
 COPY ["src/ClinicalTrials.Domain/ClinicalTrials.Domain.csproj", "src/ClinicalTrials.Domain/"]
 COPY ["src/ClinicalTrials.Persistence/ClinicalTrials.Persistence.csproj", "src/ClinicalTrials.Persistence/"]
+COPY ["/Directory.Packages.props","/"]
+COPY ["/Directory.Build.props","/"]
+
 RUN dotnet restore "src/ClinicalTrials.API/ClinicalTrials.API.csproj"
 COPY . .
 WORKDIR "/src/src/ClinicalTrials.API"

@@ -1,6 +1,6 @@
 ﻿using System.Net;
+using ClinicalTrials.API.Attributes;
 using ClinicalTrials.Application.Common;
-using ClinicalTrials.Application.Common.Attributes;
 using ClinicalTrials.Application.Features.Commands.CreateClinicalTrial;
 using ClinicalTrials.Application.Features.Dtos;
 using ClinicalTrials.Application.Features.Models.Requests;

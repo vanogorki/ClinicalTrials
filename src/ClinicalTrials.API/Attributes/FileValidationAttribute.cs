@@ -1,7 +1,7 @@
-﻿using ClinicalTrials.Application.Common.Filters;
+﻿using ClinicalTrials.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ClinicalTrials.Application.Common.Attributes;
+namespace ClinicalTrials.API.Attributes;
 
 public sealed class FileValidationAttribute : TypeFilterAttribute
 {

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace ClinicalTrials.Application.Common.Filters;
+namespace ClinicalTrials.API.Filters;
 
 public sealed class FileValidationFilter(string[] allowedExtensions, int maxFileSize) : IActionFilter
 {

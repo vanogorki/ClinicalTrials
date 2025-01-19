@@ -1,16 +1,24 @@
 using ClinicalTrials.API.Middlewares;
 using ClinicalTrials.API.Modules;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace ClinicalTrials.API;
 
-builder.AddApplicationModule();
+public sealed class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        builder.AddApplicationModule();
 
-app.MapControllers();
-app.UseMiddleware<ExceptionMiddleware>();
-app.UseSwagger();
-app.UseSwaggerUI();
-app.ApplyMigrations();
+        var app = builder.Build();
 
-app.Run();
+        app.MapControllers();
+        app.UseMiddleware<ExceptionMiddleware>();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.ApplyMigrations();
+
+        app.Run();
+    }
+}
